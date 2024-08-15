@@ -1,0 +1,20 @@
+
+name: Deploy Site to cloudflare page
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    # Put steps here to build, and check your site.
+
+    - name: Cloudflare pages build
+      uses: Cyb3r-Jak3/actions-cloudflare-pages@<Latest Release>
+      with:
+        account: ${{ secrets.CLOUDFLARE_ZONE }}
+        project: ${{ secrets.CLOUDFLARE_PROJECT }}
+        email: ${{ secrets.CLOUDFLARE_EMAIL }}
+        global_token: ${{ secrets.CLOUDFLARE_KEY }}
